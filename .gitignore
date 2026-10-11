@@ -1,0 +1,20 @@
+# Dataset archive and extracted data (ISIC, ~0.9 GB)
+isic201.zip
+data/*
+!data/README.md
+# Pretrained weights / training outputs
+pre_trained_weights/*.pth
+pre_trained/
+results/
+wandb/
+# Kept locally, not published: unverified report draft, third-party paper PDF, course guideline, drafts and notes
+_local_only/
+docs/
+proposal/*.docx
+proposal/latex/
+presentation/*.docx
+# System / Python
+.DS_Store
+__pycache__/
+**/.ipynb_checkpoints/
+PUSH_KOMUTLARI.sh
