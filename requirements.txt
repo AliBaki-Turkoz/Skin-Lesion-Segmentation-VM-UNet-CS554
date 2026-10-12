@@ -1,0 +1,29 @@
+# Environment follows the upstream VM-UNet setup (see VM-UNet_README.md):
+# Python 3.8, CUDA GPU, PyTorch 1.13 (cu117). Install torch first:
+#   pip install torch==1.13.0 torchvision==0.14.0 --extra-index-url https://download.pytorch.org/whl/cu117
+# The project's own additions (optuna, wandb) were not version-pinned.
+timm==0.4.12
+triton==2.0.0
+causal_conv1d==1.0.0
+mamba_ssm==1.0.1
+packaging
+pytest
+chardet
+yacs
+termcolor
+submitit
+tensorboardX
+scikit-learn
+matplotlib
+thop
+h5py
+SimpleITK
+scikit-image
+medpy
+ml-collections
+einops
+scipy
+tqdm
+Pillow
+optuna
+wandb
