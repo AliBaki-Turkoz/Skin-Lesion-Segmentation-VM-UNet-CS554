@@ -34,6 +34,22 @@
 - **Pretrained weights:** VMamba-Tiny ImageNet weights go in `pre_trained_weights/`. See `pre_trained_weights/README.md` for the download links from the VM-UNet authors.
 
 ## Results
+**Best test result (ISIC 2016).** Source: the course Process Report (7 May 2025), Table I, and the test-output screenshots of the run. Settings: batch size 12, 130 epochs, learning rate 9e-5. Test set = the provided ISIC 2016 validation folder (270 images).
+
+| Dataset | Dice (F1) | mIoU | Accuracy | Specificity | Sensitivity |
+|---|---|---|---|---|---|
+| **ISIC 2016** | **0.931** | **0.870** | 0.965 | 0.980 | 0.921 |
+| ISIC 2017 / 2018 | 0.87 – 0.88 | 0.77 – 0.79 | | | |
+
+**Final team paper (18 May 2025, Table III),** after the architecture and loss changes:
+
+| | ISIC 2016 | ISIC 2017 | ISIC 2018 |
+|---|---|---|---|
+| Dice | 0.906 | 0.844 | 0.858 |
+| mIoU | 0.83 | 0.73 | 0.75 |
+
+The paper states that IoU stays below FAT-Net-class baselines and that the new combined loss did not reliably help.
+
 **Hyperparameter tuning, as shown in the course presentation.** The table has 6 trials, 30 epochs each, on the validation split. The slide does not state which dataset was used; the code default is ISIC 2016.
 
 | Trial | lr | Weight decay | Drop-path | mIoU | DSC (F1) | Accuracy | Specificity | Sensitivity |
@@ -48,14 +64,15 @@
 `optuna_study_report.csv` holds a separate 10-trial run of the same search. It records only the objective (validation loss): the best was 0.339 (trial 0), and the rest ranged from 0.339 to 0.566.
 
 **How to read these results**
-- No run logs or checkpoints were kept, so these numbers cannot be re-checked from the repository.
+- The three tables come from different runs: the best test result is a full 130-epoch run, the paper reports the final configuration, and the tuning table uses short 30-epoch runs on the validation split. They are not directly comparable.
+- No checkpoints were kept, so the numbers cannot be re-computed from this repository; they are taken from the report, the paper and the run screenshots.
 - No comparison with the unmodified VM-UNet under the same settings was saved, so the effect of the two changes is **not established**. The presentation summarises the cross-dataset results as "same / no change".
-- The results are from short 30-epoch runs, not the 130-epoch schedule in the config.
+- In the original result folders the ISIC 2017 and 2018 labels look swapped (test-set sizes 650 vs 808), so those two rows are given as a range only.
 
 ## Running
-The environment needs a CUDA GPU with the Mamba kernels. Follow `VM-UNet_README.md` (Python 3.8, PyTorch 1.13, `causal_conv1d`, `mamba_ssm`). Then also install the following:
+The environment needs a CUDA GPU with the Mamba kernels. Follow `VM-UNet_README.md` (Python 3.8, PyTorch 1.13, `causal_conv1d`, `mamba_ssm`). Then install the remaining packages, with the versions the VM-UNet authors list:
 ```bash
-pip install optuna wandb
+pip install -r requirements.txt
 ```
 Then run one of:
 ```bash
