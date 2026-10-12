@@ -34,12 +34,15 @@
 - **Pretrained weights:** VMamba-Tiny ImageNet weights go in `pre_trained_weights/`. See `pre_trained_weights/README.md` for the download links from the VM-UNet authors.
 
 ## Results
-**Best test result (ISIC 2016).** Source: the course Process Report (7 May 2025), Table I, and the test-output screenshots of the run. Settings: batch size 12, 130 epochs, learning rate 9e-5. Test set = the provided ISIC 2016 validation folder (270 images).
+**Best test results.** Source: the course Process Report (7 May 2025), Table I, and the test-output screenshots of the same runs in [`results/test_screenshots/`](results/test_screenshots). Settings: batch size 12, 130 epochs, learning rate 9e-5. Test set = the provided validation folder of each dataset.
 
-| Dataset | Dice (F1) | mIoU | Accuracy | Specificity | Sensitivity |
-|---|---|---|---|---|---|
-| **ISIC 2016** | **0.931** | **0.870** | 0.965 | 0.980 | 0.921 |
-| ISIC 2017 / 2018 | 0.87 – 0.88 | 0.77 – 0.79 | | | |
+| Dataset | Test images | Dice (F1) | mIoU | Accuracy | Specificity | Sensitivity | Screenshot |
+|---|---|---|---|---|---|---|---|
+| **ISIC 2016** | 270 | **0.931** | **0.870** | 0.965 | 0.980 | 0.921 | [2016](results/test_screenshots/TestResult_2016Dataset_BatchSize_12.PNG) |
+| ISIC 2017 | 650 | 0.873 | 0.775 | 0.959 | 0.982 | 0.844 | [2017](results/test_screenshots/TestResult_2017Dataset_BatchSize_12.PNG) |
+| ISIC 2018 | 808 | 0.881 | 0.788 | 0.942 | 0.962 | 0.882 | [2018](results/test_screenshots/TestResult_2018Dataset_BatchSize_12.PNG) |
+
+The same table in the report also lists batch-size-8 runs, which were slightly lower on ISIC 2016 (Dice 0.921, mIoU 0.854) and about the same on ISIC 2017/2018.
 
 **Final team paper (18 May 2025, Table III),** after the architecture and loss changes:
 
@@ -67,7 +70,7 @@ The paper states that IoU stays below FAT-Net-class baselines and that the new c
 - The three tables come from different runs: the best test result is a full 130-epoch run, the paper reports the final configuration, and the tuning table uses short 30-epoch runs on the validation split. They are not directly comparable.
 - No checkpoints were kept, so the numbers cannot be re-computed from this repository; they are taken from the report, the paper and the run screenshots.
 - No comparison with the unmodified VM-UNet under the same settings was saved, so the effect of the two changes is **not established**. The presentation summarises the cross-dataset results as "same / no change".
-- In the original result folders the ISIC 2017 and 2018 labels look swapped (test-set sizes 650 vs 808), so those two rows are given as a range only.
+- The output paths in the screenshots all say `vmunet_isic16` because the run name in the config was not changed between runs; the test-set sizes (270 / 650 / 808) identify the dataset.
 
 ## Running
 The environment needs a CUDA GPU with the Mamba kernels. Follow `VM-UNet_README.md` (Python 3.8, PyTorch 1.13, `causal_conv1d`, `mamba_ssm`). Then install the remaining packages, with the versions the VM-UNet authors list:
