@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Course** | CS554 – Introduction to Machine Learning and Artificial Neural Networks, Özyeğin University (M.Sc. Computer Engineering), Spring 2025 · Instructor: Prof. Ethem Alpaydın |
-| **Type** | Team project · repository maintained by Ali Baki Türköz |
+| **Type** | Team project (see [Team & contributions](#team--contributions)) · repository maintained by Ali Baki Türköz |
 | **Base code** | [VM-UNet](https://arxiv.org/abs/2402.02491) (Ruan & Xiang, 2024), official implementation, Apache-2.0. See `LICENSE` and `VM-UNet_README.md`. |
 | **Task** | Binary segmentation of skin lesions on dermoscopy images (ISIC 2016 / 2017 / 2018) |
 
@@ -97,6 +97,17 @@ train.py, train_new.py, hyperparameter_tuning.py, optuna_study_report.csv
 proposal/       project proposal (PDF)
 presentation/   project presentations
 ```
+
+## Team & contributions
+| Member | Contribution |
+|---|---|
+| Ahmet Mete Dokgoz | Team member |
+| Emre Öztürk | Team member |
+| Ali Baki Türköz | Team member |
+
+Three-person team; all three are listed on the project proposal and the progress report. A per-person task split was not recorded in the project documents.
+
+Source: project proposal (24 Apr 2025) and progress report.
 
 ## Academic integrity
 This is graded coursework built on an open-source baseline. All credit for the original VM-UNet architecture and code goes to its authors. This repository only adds the changes listed above, made as a team, and does not claim them as individual work.
