@@ -101,7 +101,7 @@ presentation/   project presentations
 ## Team & contributions
 | Member | Contribution |
 |---|---|
-| Ahmet Mete Dokgoz | Team member |
+| Ahmet Mete Dokgöz | Team member |
 | Emre Öztürk | Team member |
 | Ali Baki Türköz | Team member |
 
